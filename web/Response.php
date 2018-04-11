@@ -363,7 +363,8 @@ class Response extends \yii\base\Response
     protected function sendHeaders()
     {
         if (headers_sent($file, $line)) {
-            throw new HeadersAlreadySentException($file, $line);
+			return;
+            //throw new HeadersAlreadySentException($file, $line);
         }
         if ($this->_headers) {
             foreach ($this->getHeaders() as $name => $values) {
