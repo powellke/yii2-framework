@@ -437,7 +437,8 @@ abstract class Schema extends BaseObject
         $result = [];
         foreach ($tableSchema->primaryKey as $name) {
             if ($tableSchema->columns[$name]->autoIncrement) {
-                $result[$name] = $this->getLastInsertID($tableSchema->sequenceName);
+                //$result[$name] = $this->getLastInsertID($tableSchema->sequenceName);
+                $result[$name] = $this->getLastInsertID($table);
                 break;
             }
 
